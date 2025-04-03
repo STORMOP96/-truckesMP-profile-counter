@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trucker Profile Views</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .counter-box {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-box">
+        <img src="https://img.icons8.com/emoji/48/000000/articulated-lorry-emoji.png" alt="Truck">
+        <span id="counter">Loading...</span>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('counter.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("counter").innerText = data;
+                });
+        });
+    </script>
+</body>
+</html>
